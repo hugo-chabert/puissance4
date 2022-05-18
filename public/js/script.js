@@ -115,17 +115,14 @@ function checkWinner() {
     }
 }
 function setWinner(r, c) {
-    let winner = document.getElementById("winner");
     if (board[r][c] == playerRed) {
-        winner.innerText = "Victoire Rouge";
-        winner.setAttribute("style", "color:Red");
+        alert("Le rouge a gagné !")
         $.ajax({
             url: "../model/game_win.php",
             type: "POST"
         });
     } else {
-        winner.innerText = "Victoire Jaune";
-        winner.setAttribute("style", "color:yellow");
+        alert("Le jaune a gagné !")
         $.ajax({
             url: "../model/game_loose.php",
             type: "POST"

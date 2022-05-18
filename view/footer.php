@@ -1,6 +1,6 @@
 <footer>
     <section class="part-one">
-        <img src="https://img.icons8.com/external-anggara-line-anggara-putra/344/external-checklist-ecommerce-anggara-line-anggara-putra.png"/>
+        <img src="https://img.icons8.com/emoji/344/red-circle-emoji.png"/><img src="https://img.icons8.com/emoji/344/yellow-circle-emoji.png"/>
         <p>Copyright © 2021 - 2022 - Tous droits réservés.</p>
     </section>
     <section class="part-two">
