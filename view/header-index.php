@@ -5,6 +5,8 @@
         if(isset($_SESSION['user'])){?>
             <ul>
                 <hr>
+                <a href="index.php"><li>Accueil</li></a>
+                <hr>
                 <a href="view/puissance4.php"><li>Puissance 4</li></a>
                 <hr>
                 <a href="view/classement.php"><li>Classement</li></a>
