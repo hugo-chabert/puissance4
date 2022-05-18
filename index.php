@@ -43,6 +43,7 @@ if(isset($_POST['register'])){
 <body>
     <?php require_once(__DIR__ . '/view/header-index.php'); ?>
     <main>
+        <?php require('view/errors.php');?>
         <div class="container">
             <?php if(!Security::isConnect()){?>
                 <div class="container-fieldset">
