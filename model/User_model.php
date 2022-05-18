@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__ . '/../database/DB.php');
 require_once(__DIR__ . '/../controller/Security.php');
+require_once(__DIR__.'/Stats_model.php');
 
 class User_model{
 
@@ -10,12 +11,14 @@ class User_model{
 
         if(User_model::info_user_login($login_safe) == false){
             $password_hash = password_hash($password_safe, PASSWORD_BCRYPT);
-            $req = "INSERT INTO users (login, password, rights) VALUES (:login, :password, 0)";
+            $req = "INSERT INTO users (login, password) VALUES (:login, :password)";
             $stmt = Database::connect_db()->prepare($req);
             $stmt->execute(array(
                 ":login" => $login_safe,
                 ":password" => $password_hash
             ));
+            $results = User_model::info_user_login($login_safe);
+            Stats_model::create_profil($results['id']);
             Toolbox::addMessageAlert("Le compte est créé!", Toolbox::GREEN_COLOR);
             header("Location: ./index.php");
             exit();
@@ -37,9 +40,8 @@ class User_model{
             if(password_verify($password_safe, $results["password"])){
                 $_SESSION["user"]["id"] = $results["id"];
                 $_SESSION["user"]["login"] = $results["login"];
-                $_SESSION["user"]["rights"] = $results["rights"];
                 Toolbox::addMessageAlert("Connexion faite.", Toolbox::GREEN_COLOR);
-                header("Location: ./view/todolist.php");
+                header("Location: index.php");
                 exit();
             }
             else{

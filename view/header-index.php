@@ -5,14 +5,12 @@
         if(isset($_SESSION['user'])){?>
             <ul>
                 <hr>
-                <a href="../index.php"><li>Accueil</li></a>
+                <a href="view/puissance4.php"><li>Puissance 4</li></a>
                 <hr>
-                <a href="puissance4.php"><li>Puissance 4</li></a>
-                <hr>
-                <a href="disconnect.php"><li>Deconnexion</li></a>
+                <a href="view/disconnect-index.php"><li>Deconnexion</li></a>
                 <hr>
             </ul>
         <?php } ?>
     </nav>
 </header>
-<link rel="stylesheet" type="text/css" href="../public/css/header.css">
+<link rel="stylesheet" type="text/css" href="public/css/header.css">
