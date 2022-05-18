@@ -4,6 +4,7 @@ require_once(__DIR__ . '/../controller/Toolbox.php');
 require_once(__DIR__ . '/../controller/Security.php');
 
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,13 +18,21 @@ session_start();
 <body>
     <?php require_once 'header.php'; ?>
     <main>
+        <?php if(Security::isConnect()){?>
         <article>
-            <?php if(Security::isConnect()){?>
                 <h3> <?= $_SESSION['user']['login']; ?>  Tu es en Rouge </h3>
             <h3>L'invité est en Jaune</h3>
-            <?php } ?>
         </article>
         <div id="board"></div>
+        <?php }
+        else{
+            ?>
+                <div class="container">
+                    <a class="AccueilA" href="../index.php"><li class="AccueilLi">Accueil</li></a>
+                    <h1>Veuillez vous connecter avant de jouer</h1>
+                </div>
+            <?php
+        } ?>
         <br>
     </main>
     <?php require_once 'footer.php'; ?>
